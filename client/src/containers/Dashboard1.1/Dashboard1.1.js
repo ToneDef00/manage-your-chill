@@ -99,6 +99,7 @@ const RenderChillerRow = function(props){
         that.setState(cstate);
     };
 
+
     return (
         <StyledTableRow onClick={handleClick} key={row.id}>
             <StyledTableCell index={props.index} component="th" scope="row">
@@ -118,9 +119,14 @@ const RenderChillerRow = function(props){
 const RenderGraphAndChiller = function(props){
     let that = props.this;
     let row = props.row;
+    const hideGraph = () => {
+        let cstate = that.state;
+        cstate.showGraph = -1;
+        that.setState(cstate);
+    };
     let array = [
         <StyledTableRow key={row.chillerName + " Graph"}>
-            <TempChart chillerID={row.id} this={that} row={props.row} index={props.index}/>
+            <TempChart chillerID={row.id} this={that} row={props.row} index={props.index} hide={hideGraph}/>
         </StyledTableRow>,
         <RenderChillerRow key={row.chillerName} this={that} row={props.row} index={props.index} />
         ];

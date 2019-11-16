@@ -10,7 +10,7 @@ import moment from "moment";
 import {
     TableCell
 } from "@material-ui/core";
-
+import S from "./index.css";
 
 class TempChart extends Component {
     constructor(props){
@@ -40,7 +40,7 @@ class TempChart extends Component {
         }).then( (response) => {
                 let rev = response.data.slice(0,128).reverse();
                 let dataArray = this.cleanData(rev);
-                console.log(dataArray);
+                // console.log(dataArray);
                 let cstate = this.state;
                 cstate.data= dataArray;
                 this.setState(cstate);
@@ -56,7 +56,7 @@ class TempChart extends Component {
         for(let i in arrayInput){
             //if(i%2 === 0){
                 let pointTime = moment.unix(arrayInput[i].timestamp);
-                console.log(pointTime.format());
+                // console.log(pointTime.format());
                 let datapoint = {
                     x:arrayInput[i].timestamp,y:arrayInput[i].temp1
                 };
@@ -68,7 +68,8 @@ class TempChart extends Component {
 
 
     render() {
-        return (<TableCell>
+        return (<TableCell className={S.flexContainer}>
+                <button onClick={this.props.hide}>X</button>
                 <VictoryChart>
                     <VictoryLine
                         data={this.state.data}

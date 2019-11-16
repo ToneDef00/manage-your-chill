@@ -1,0 +1,11 @@
+.flexContainer{
+    display:flex;
+}
+
+.flexButton{
+    align-content: end;
+}
+
+.graphBox{
+
+}

@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualChiller/VirtualChiller.js" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChiller/VirtualChiller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Todo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -121,7 +118,10 @@
       <workItem from="1573584662884" duration="12000" />
       <workItem from="1573591150223" duration="23514000" />
       <workItem from="1573677736225" duration="19000" />
-      <workItem from="1573768465087" duration="27966000" />
+      <workItem from="1573768465087" duration="29218000" />
+      <workItem from="1573866138698" duration="260000" />
+      <workItem from="1573866421877" duration="35000" />
+      <workItem from="1573872483315" duration="1123000" />
     </task>
     <servers />
   </component>
