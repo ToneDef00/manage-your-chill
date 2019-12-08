@@ -116,44 +116,78 @@ const RenderChillerRow = function(props){
     );
 };
 
-const RenderGraphAndChiller = function(props){
+
+// const RenderGraphAndChiller = function(props){
+//     let that = props.this;
+//     let row = props.row;
+//     const hideGraph = () => {
+//         let cstate = that.state;
+//         cstate.showGraph = -1;
+//         that.setState(cstate);
+//     };
+//     let array = [
+//         <StyledTableRow key={row.chillerName + " Graph"}>
+//             <TempChart chillerID={row.id} this={that} row={props.row} index={props.index} hide={hideGraph}/>
+//         </StyledTableRow>,
+//         <RenderChillerRow key={row.chillerName} this={that} row={props.row} index={props.index} />
+//         ];
+//     return (
+//         array.map((row) => row)
+//     )
+//
+// }
+
+const RenderChillers = function (props){
     let that = props.this;
-    let row = props.row;
+
+    if(that.state.chillers.UserChillers !== undefined){
+        return (
+            <TableBody>
+                {that.state.chillers.UserChillers.map((row, index) => {
+                    //     if(that.state.showGraph === index){
+                    //     return(
+                    //             <RenderGraphAndChiller key={row.chillerName + " Graph"} this={that} row={row} index={index}/>
+                    //         );
+                    // }
+                    return (<RenderChillerRow key={row.chillerName} this={that} row={row} index={index} />);
+                })}
+            </TableBody>
+        );
+    }
+    else{
+        //TODO add Model to register new chillers better error handling here.
+        return(
+            <TableBody>
+                <StyledTableRow>
+                    <TableCell>
+                        No Chillers Registered
+                    </TableCell>
+                </StyledTableRow>
+            </TableBody>
+        );
+    }
+
+};
+
+const RenderChillerGraph = function(props){
+    let that = props.that;
     const hideGraph = () => {
         let cstate = that.state;
         cstate.showGraph = -1;
         that.setState(cstate);
     };
-    let array = [
-        <StyledTableRow key={row.chillerName + " Graph"}>
-            <TempChart chillerID={row.id} this={that} row={props.row} index={props.index} hide={hideGraph}/>
-        </StyledTableRow>,
-        <RenderChillerRow key={row.chillerName} this={that} row={props.row} index={props.index} />
-        ];
-    return (
-        array.map((row) => row)
-    )
 
-}
-
-const RenderChillers = function (props){
-    let that = props.this;
-
-    return (
-        <TableBody>
-            {that.state.chillers.UserChillers.map((row, index) => {
-                if(that.state.showGraph === index){
-                return(
-                        <RenderGraphAndChiller key={row.chillerName + " Graph"} this={that} row={row} index={index}/>
-                    );
-            }
-               return (<RenderChillerRow key={row.chillerName} this={that} row={row} index={index} />);
-            })}
-        </TableBody>
-    );
+    if(props.showGraph > -1){
+        return(
+            <TempChart chillerID={that.state.chillers.ChillerDataByID[that.state.showGraph].chillerID} dashboardThis={that} chillerName={that.state.chillers.UserChillers[that.state.showGraph].chillerName} hide={hideGraph} />
+        )
+    }
+    else {
+        return(
+            <div></div>
+        )
+    }
 };
-
-
 
 
 class Dashboard1 extends Component {
@@ -171,6 +205,7 @@ class Dashboard1 extends Component {
         };
 
         this.handleChillerClick = this.handleChillerClick.bind();
+
     }
 
     componentDidMount() {
@@ -191,6 +226,7 @@ class Dashboard1 extends Component {
 
 
     handleChillerClick(state) {
+        console.log("clicked");
         console.log(this.props);
     }
 
@@ -199,6 +235,7 @@ class Dashboard1 extends Component {
         return (
             <div className="page">
                 <Paper>
+                    <RenderChillerGraph showGraph={this.state.showGraph} that={this}/>
                     <Table>
                         <caption>
                             Click on a chiller to open its corresponding controller

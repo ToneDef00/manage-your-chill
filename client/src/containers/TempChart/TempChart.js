@@ -4,13 +4,11 @@ import {VictoryChart, VictoryLine} from 'victory';
 import requireAuth from "../../hoc/requireAuth";
 import axios from "axios";
 import {connect} from "react-redux";
-import moment from "moment";
 
-//styles
-import {
-    TableCell
-} from "@material-ui/core";
-import S from "./index.css";
+
+import "./index.css";
+import "@material-ui/core";
+
 
 class TempChart extends Component {
     constructor(props){
@@ -25,7 +23,8 @@ class TempChart extends Component {
                 { x:1500, y:-40},
                 { x:1530, y:-40},
                 { x:1600, y:-40},
-            ]
+            ],
+            loaded:false
         };
         console.log(props.chillerID);
     }
@@ -39,10 +38,13 @@ class TempChart extends Component {
             }
         }).then( (response) => {
                 let rev = response.data.slice(0,128).reverse();
+                console.log(`axios call success for chiller id`)
+                console.log(rev);
                 let dataArray = this.cleanData(rev);
                 // console.log(dataArray);
                 let cstate = this.state;
                 cstate.data= dataArray;
+                cstate.loaded=true;
                 this.setState(cstate);
 
             }).catch((e)=>{
@@ -54,33 +56,58 @@ class TempChart extends Component {
     cleanData(arrayInput){
         let dataArray = [];
         for(let i in arrayInput){
-            //if(i%2 === 0){
-                let pointTime = moment.unix(arrayInput[i].timestamp);
-                // console.log(pointTime.format());
+            let pointTime = new Date(arrayInput[i].timestamp*1000);
+
+            if(i%2 === 0){
+                console.log(pointTime);
                 let datapoint = {
-                    x:arrayInput[i].timestamp,y:arrayInput[i].temp1
+                    x:new Date(pointTime),
+                    y:arrayInput[i].temp1
                 };
                 dataArray.push(datapoint);
-           // }
+           }
         }
         return dataArray;
     }
 
+    isData(){
+    if(this.state.data !== undefined){
+    return true;
+    }else{
+        return false
+    }
+    }
 
     render() {
-        return (<TableCell className={S.flexContainer}>
-                <button onClick={this.props.hide}>X</button>
-                <VictoryChart>
-                    <VictoryLine
-                        data={this.state.data}
-                        style={{
-                            data: { fill: "tomato", opacity: 0.7 },
-                            labels: { fontSize: 12 },
-                            parent: { border: "1px solid #ccc" }
-                        }}
-                    />
-                </VictoryChart>
-        </TableCell>
+        console.log(this.state.data);
+        return (
+            <div className={"ShowGraphToggle"}>
+                {this.state.loaded ? <div className={"graphContainer"}>
+                    <div className={"UpperInfo"}>
+                        <div className={'GraphINfo'}>
+                            <h5>{this.props.chillerName}</h5>
+                        </div>
+                        <button className={"waves-effect waves-light btn"} onClick={this.props.hide}>X</button>
+                    </div>
+                    <VictoryChart  height={200}>
+                        <VictoryLine
+                            data={this.state.data}
+                            style={{
+                                data: { fill: "blue", opacity: 0.4, width:3 },
+                                labels: { fontSize: 10, padding: -20 },
+                                parent: { border: "1px solid #ccc" }
+                            }}
+                            fixLabelOverlap={true}
+                            animate={{
+                                duration: 2000,
+                                onLoad: { duration: 2000 }
+                            }}
+
+                        />
+                    </VictoryChart>
+                </div>:<div></div>}
+
+            </div>
         );
     }
 }

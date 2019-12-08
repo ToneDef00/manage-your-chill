@@ -1,0 +1,21 @@
+
+.ShowGraphToggle {
+    background-color: #0277bd;
+    transition: bottom 2s;
+}
+.tempChartContainer{
+    height: 250px;
+}
+
+.graphContainer{
+    display: flex;
+    flex-direction: column;
+}
+.UpperInfo{
+    display: flex;
+    flex-direction: row;
+}
+.GraphINfo{
+    flex-grow: 1;
+}
+

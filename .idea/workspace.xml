@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/TempChart/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,18 +58,6 @@
       <recent name="$PROJECT_DIR$/../../UCB-Code/twitch-battleRoyalMap-extension" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Node.js.mysql2ORMController.js">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -92,6 +80,18 @@
         <item itemvalue="Node.js.mysql2ORMController.js" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -143,5 +143,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1575772286304">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/67.27.1373.873@67.27.1373.873" timestamp="1575772286304" />
+    <state x="417" y="208" key="run.anything.popup" timestamp="1575772782445">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="417" y="208" key="run.anything.popup/67.27.1373.873@67.27.1373.873" timestamp="1575772782445" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js</url>
+          <line>119</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
